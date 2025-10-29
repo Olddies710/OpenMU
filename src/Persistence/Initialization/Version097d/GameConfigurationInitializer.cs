@@ -56,6 +56,9 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
         new Items.Armors(this.Context, this.GameConfiguration).Initialize();
         new Items.Wings(this.Context, this.GameConfiguration).Initialize();
         new Items.Pets(this.Context, this.GameConfiguration).Initialize();
+        new Version095d.Items.Armors(this.Context, this.GameConfiguration).Initialize();
+        new Version095d.Items.Wings(this.Context, this.GameConfiguration).Initialize(); // 0.95d wings compatible with 0.97d class set
+        new Version095d.Items.Pets(this.Context, this.GameConfiguration).Initialize();
         new Version097d.Items.Weapons(this.Context, this.GameConfiguration).Initialize();
         new Version075.Items.Potions(this.Context, this.GameConfiguration).Initialize();
         new Items.Jewelery(this.Context, this.GameConfiguration).Initialize();
