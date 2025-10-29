@@ -49,25 +49,28 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
         new Orbs(this.Context, this.GameConfiguration).Initialize();
 
         // Reuse proven initializers from 0.95d / 0.75 where compatible
-        new Version095d.Items.Scrolls(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Items.EventTicketItems(this.Context, this.GameConfiguration).Initialize();
+        new Items.Scrolls(this.Context, this.GameConfiguration).Initialize();
+        new Items.EventTicketItems(this.Context, this.GameConfiguration).Initialize();
         new Version097d.Items.Jewels(this.Context, this.GameConfiguration).Initialize();
         new MUnique.OpenMU.Persistence.Initialization.Items.ExcellentOptions(this.Context, this.GameConfiguration).Initialize();
+        new Items.Armors(this.Context, this.GameConfiguration).Initialize();
+        new Items.Wings(this.Context, this.GameConfiguration).Initialize();
+        new Items.Pets(this.Context, this.GameConfiguration).Initialize();
         new Version095d.Items.Armors(this.Context, this.GameConfiguration).Initialize();
         new Version095d.Items.Wings(this.Context, this.GameConfiguration).Initialize(); // 0.95d wings compatible with 0.97d class set
         new Version095d.Items.Pets(this.Context, this.GameConfiguration).Initialize();
         new Version097d.Items.Weapons(this.Context, this.GameConfiguration).Initialize();
         new Version075.Items.Potions(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Items.Jewelery(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Items.BoxOfLuck(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Maps.NpcInitialization(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Maps.InvasionMobsInitialization(this.Context, this.GameConfiguration).Initialize();
+        new Items.Jewelery(this.Context, this.GameConfiguration).Initialize();
+        new Items.BoxOfLuck(this.Context, this.GameConfiguration).Initialize();
+        new NpcInitialization(this.Context, this.GameConfiguration).Initialize();
+        new InvasionMobsInitialization(this.Context, this.GameConfiguration).Initialize();
 
         new GameMapsInitializer(this.Context, this.GameConfiguration).Initialize();
         this.AssignCharacterClassHomeMaps();
 
-        new Version095d.Items.ChaosMixes(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Gates(this.Context, this.GameConfiguration).Initialize();
+        new ChaosMixes(this.Context, this.GameConfiguration).Initialize();
+        new Gates(this.Context, this.GameConfiguration).Initialize();
         new Version095d.DevilSquareInitializer(this.Context, this.GameConfiguration).Initialize();
         new BloodCastleInitializer(this.Context, this.GameConfiguration).Initialize();
         new ChaosCastleInitializer(this.Context, this.GameConfiguration).Initialize();
