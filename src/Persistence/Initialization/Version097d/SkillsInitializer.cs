@@ -17,7 +17,7 @@ using MUnique.OpenMU.Persistence.Initialization.Skills;
 /// Skills initializer for version 0.97d.
 /// Based on the 0.95d setup but without Magic Gladiator or Dark Lord specific mappings.
 /// </summary>
-public class SkillsInitializer : SkillsInitializerBase
+internal class SkillsInitializer : SkillsInitializerBase
 {
     private static readonly IDictionary<SkillNumber, MagicEffectNumber> EffectsOfSkills = new Dictionary<SkillNumber, MagicEffectNumber>
     {

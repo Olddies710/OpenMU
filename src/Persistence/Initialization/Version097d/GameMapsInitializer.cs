@@ -51,6 +51,23 @@ public class GameMapsInitializer : GameMapsInitializerBase
             yield return typeof(ChaosCastle4);
             yield return typeof(ChaosCastle5);
             yield return typeof(ChaosCastle6);
+            yield return typeof(Icarus);
+            yield return typeof(DevilSquare1);
+            yield return typeof(DevilSquare2);
+            yield return typeof(DevilSquare3);
+            yield return typeof(DevilSquare4);
+            yield return typeof(BloodCastle1);
+            yield return typeof(BloodCastle2);
+            yield return typeof(BloodCastle3);
+            yield return typeof(BloodCastle4);
+            yield return typeof(BloodCastle5);
+            yield return typeof(BloodCastle6);
+            yield return typeof(ChaosCastle1);
+            yield return typeof(ChaosCastle2);
+            yield return typeof(ChaosCastle3);
+            yield return typeof(ChaosCastle4);
+            yield return typeof(ChaosCastle5);
+            yield return typeof(ChaosCastle6);
             yield return typeof(Version075.Maps.LostTower);
             yield return typeof(Version075.Maps.Exile);
             yield return typeof(Version075.Maps.Arena); // Stadium / Arena

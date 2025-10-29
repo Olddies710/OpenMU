@@ -6,6 +6,7 @@ namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Items;
 
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.DataModel.Configuration.Items;
+using MUnique.OpenMU.Persistence.Initialization;
 using MUnique.OpenMU.Persistence.Initialization.Maps;
 
 /// <summary>
