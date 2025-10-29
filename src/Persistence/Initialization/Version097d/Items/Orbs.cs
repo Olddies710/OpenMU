@@ -6,13 +6,12 @@ namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Items;
 
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.Persistence.Initialization.CharacterClasses;
-using MUnique.OpenMU.Persistence.Initialization.Version075.Items;
 using MUnique.OpenMU.Persistence.Initialization.Skills;
 
 /// <summary>
 /// Orbs for 0.97d. Based on 0.75 base, Twisting Slash orb added for Dark Knight only (no Magic Gladiator).
 /// </summary>
-public class Orbs : Version075.Items.Orbs
+internal class Orbs : Version075.Items.Orbs
 {
     public Orbs(IContext context, GameConfiguration gameConfiguration)
         : base(context, gameConfiguration)
