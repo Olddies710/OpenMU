@@ -4,6 +4,8 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d;
 
+using System;
+using System.Collections.Generic;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.Persistence.Initialization.Version095d.Maps;
 
@@ -28,7 +30,7 @@ public class GameMapsInitializer : GameMapsInitializerBase
             yield return typeof(Version075.Maps.LostTower);
             yield return typeof(Version075.Maps.Exile);
             yield return typeof(Version075.Maps.Arena); // Stadium / Arena
-            yield return typeof(Atlans);
+            yield return typeof(Version075.Maps.Atlans);
             yield return typeof(Version095d.Maps.Tarkan);
             yield return typeof(Icarus);
             yield return typeof(Version095d.Maps.DevilSquare1);
