@@ -71,6 +71,7 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
 
         new ChaosMixes(this.Context, this.GameConfiguration).Initialize();
         new Gates(this.Context, this.GameConfiguration).Initialize();
+        new DevilSquareInitializer(this.Context, this.GameConfiguration).Initialize();
         new Version095d.DevilSquareInitializer(this.Context, this.GameConfiguration).Initialize();
         new BloodCastleInitializer(this.Context, this.GameConfiguration).Initialize();
         new ChaosCastleInitializer(this.Context, this.GameConfiguration).Initialize();
