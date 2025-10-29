@@ -4,6 +4,7 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d;
 
+using System.Collections.Generic;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.DataModel.Configuration.Items;
 using MUnique.OpenMU.Persistence.Initialization.Version095d.Items;
@@ -54,7 +55,7 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
         new Version095d.Items.Armors(this.Context, this.GameConfiguration).Initialize();
         new Version095d.Items.Wings(this.Context, this.GameConfiguration).Initialize(); // 0.95d wings compatible with 0.97d class set
         new Version095d.Items.Pets(this.Context, this.GameConfiguration).Initialize();
-        new Version095d.Items.Weapons(this.Context, this.GameConfiguration).Initialize();
+        new Version097d.Items.Weapons(this.Context, this.GameConfiguration).Initialize();
         new Version075.Items.Potions(this.Context, this.GameConfiguration).Initialize();
         new Version095d.Items.Jewelery(this.Context, this.GameConfiguration).Initialize();
         new Version095d.Items.BoxOfLuck(this.Context, this.GameConfiguration).Initialize();
