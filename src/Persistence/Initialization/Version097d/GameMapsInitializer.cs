@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.Persistence.Initialization.Version095d.Maps;
+using SeasonSixMaps = MUnique.OpenMU.Persistence.Initialization.VersionSeasonSix.Maps;
 
 /// <summary>
 /// Initializes the <see cref="GameMapDefinition"/>s for 0.97d (based on 0.95d/0.75 maps suitable for 0.97d).
@@ -37,6 +38,18 @@ public class GameMapsInitializer : GameMapsInitializerBase
             yield return typeof(Version095d.Maps.DevilSquare2);
             yield return typeof(Version095d.Maps.DevilSquare3);
             yield return typeof(Version095d.Maps.DevilSquare4);
+            yield return typeof(SeasonSixMaps.BloodCastle1);
+            yield return typeof(SeasonSixMaps.BloodCastle2);
+            yield return typeof(SeasonSixMaps.BloodCastle3);
+            yield return typeof(SeasonSixMaps.BloodCastle4);
+            yield return typeof(SeasonSixMaps.BloodCastle5);
+            yield return typeof(SeasonSixMaps.BloodCastle6);
+            yield return typeof(SeasonSixMaps.ChaosCastle1);
+            yield return typeof(SeasonSixMaps.ChaosCastle2);
+            yield return typeof(SeasonSixMaps.ChaosCastle3);
+            yield return typeof(SeasonSixMaps.ChaosCastle4);
+            yield return typeof(SeasonSixMaps.ChaosCastle5);
+            yield return typeof(SeasonSixMaps.ChaosCastle6);
         }
     }
 }

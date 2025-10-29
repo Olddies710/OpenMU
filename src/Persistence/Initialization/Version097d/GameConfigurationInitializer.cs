@@ -9,6 +9,7 @@ using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.DataModel.Configuration.Items;
 using MUnique.OpenMU.Persistence.Initialization.Version095d.Items;
 using MUnique.OpenMU.Persistence.Initialization.Version075.Items;
+using MUnique.OpenMU.Persistence.Initialization.Version097d.Events;
 using MUnique.OpenMU.Persistence.Initialization.Version097d.Items;
 
 /// <summary>
@@ -68,5 +69,7 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
         new Version095d.Items.ChaosMixes(this.Context, this.GameConfiguration).Initialize();
         new Version095d.Gates(this.Context, this.GameConfiguration).Initialize();
         new Version095d.DevilSquareInitializer(this.Context, this.GameConfiguration).Initialize();
+        new BloodCastleInitializer(this.Context, this.GameConfiguration).Initialize();
+        new ChaosCastleInitializer(this.Context, this.GameConfiguration).Initialize();
     }
 }
