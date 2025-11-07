@@ -1,4 +1,4 @@
-// <copyright file="Atlans.cs" company="MUnique">
+﻿// <copyright file="Atlans.cs" company="MUnique">
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 // </copyright>
 
@@ -7,7 +7,7 @@ namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Maps;
 using MUnique.OpenMU.DataModel.Configuration;
 
 /// <summary>
-/// Initialization for the Atlans map of version 0.97d.
+/// Initialization for the Atlans map.
 /// </summary>
 internal class Atlans : Version075.Maps.Atlans
 {
@@ -19,5 +19,19 @@ internal class Atlans : Version075.Maps.Atlans
     public Atlans(IContext context, GameConfiguration gameConfiguration)
         : base(context, gameConfiguration)
     {
+    }
+
+    /// <inheritdoc />
+    protected override string TerrainVersionPrefix => string.Empty;
+
+    /// <inheritdoc />
+    protected override IEnumerable<MonsterSpawnArea> CreateNpcSpawns()
+    {
+        foreach (var npc in base.CreateNpcSpawns())
+        {
+            yield return npc;
+        }
+
+        yield return this.CreateMonsterSpawn(10, this.NpcDictionary[229], 17, 35, Direction.SouthEast, SpawnTrigger.Wandering); // Marlon
     }
 }

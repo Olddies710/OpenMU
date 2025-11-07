@@ -6,26 +6,29 @@ namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Items;
 
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.Persistence.Initialization.CharacterClasses;
-using MUnique.OpenMU.Persistence.Initialization.Version075.Items;
 using MUnique.OpenMU.Persistence.Initialization.Skills;
 
 /// <summary>
-/// Orbs for 0.97d. Based on 0.75 base, Twisting Slash orb added for Dark Knight only (no Magic Gladiator).
+/// Initializes orb items which are used to learn skills.
 /// </summary>
 internal class Orbs : Version075.Items.Orbs
-public class Orbs : Version075.Items.Orbs
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="Orbs"/> class.
+    /// </summary>
+    /// <param name="context">The persistence context.</param>
+    /// <param name="gameConfiguration">The game configuration.</param>
     public Orbs(IContext context, GameConfiguration gameConfiguration)
         : base(context, gameConfiguration)
     {
     }
 
+    /// <summary>
+    /// Initializes all orbs.
+    /// </summary>
     public override void Initialize()
     {
-        // base creates the standard orbs from 0.75 baseline
         base.Initialize();
-
-        // 0.97d: TwistingSlash for Dark Knight only (Magic Gladiator not present in this version)
-        this.CreateOrb(7, SkillNumber.TwistingSlash, 1, "Orb of Twisting Slash", 47, 80, 0, 0, 0, 29000, CharacterClasses.DarkKnight);
+        this.CreateOrb(7, SkillNumber.TwistingSlash, 1, "Orb of Twisting Slash", 47, 80, 0, 0, 0, 29000, CharacterClasses.DarkKnight | CharacterClasses.MagicGladiator);
     }
 }

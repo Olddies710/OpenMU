@@ -4,8 +4,11 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version095d;
 
+using System.Reflection;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.DataModel.Configuration.Items;
+using MUnique.OpenMU.GameLogic.Attributes;
+using MUnique.OpenMU.Persistence.Initialization.CharacterClasses;
 using MUnique.OpenMU.Persistence.Initialization.Items;
 using MUnique.OpenMU.Persistence.Initialization.Version095d.Events;
 using MUnique.OpenMU.Persistence.Initialization.Version095d.Items;
@@ -53,7 +56,7 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
         new Wings(this.Context, this.GameConfiguration).Initialize();
         new Pets(this.Context, this.GameConfiguration).Initialize();
         new Weapons(this.Context, this.GameConfiguration).Initialize();
-        new Version075.Items.Potions(this.Context, this.GameConfiguration).Initialize();
+		new Potions(this.Context, this.GameConfiguration).Initialize();
         new Jewelery(this.Context, this.GameConfiguration).Initialize();
         new BoxOfLuck(this.Context, this.GameConfiguration).Initialize();
         new NpcInitialization(this.Context, this.GameConfiguration).Initialize();
@@ -64,5 +67,7 @@ public class GameConfigurationInitializer : GameConfigurationInitializerBase
         new ChaosMixes(this.Context, this.GameConfiguration).Initialize();
         new Gates(this.Context, this.GameConfiguration).Initialize();
         new DevilSquareInitializer(this.Context, this.GameConfiguration).Initialize();
+        new BloodCastleInitializer(this.Context, this.GameConfiguration).Initialize();
+        new ChaosCastleInitializer(this.Context, this.GameConfiguration).Initialize();
     }
 }

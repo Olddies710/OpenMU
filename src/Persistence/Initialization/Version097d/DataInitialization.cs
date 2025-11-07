@@ -5,7 +5,6 @@
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d;
 
 using System.Runtime.InteropServices;
-using System.Text;
 using Microsoft.Extensions.Logging;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.Network.PlugIns;
@@ -19,23 +18,37 @@ using MUnique.OpenMU.PlugIns;
 [PlugIn("Version 0.97d Initialization", "Provides initial data for Version 0.97d")]
 public class DataInitialization : DataInitializationBase
 {
+    /// <summary>
+    /// Initializes a new instance of the <see cref="DataInitialization" /> class.
+    /// </summary>
+    /// <param name="persistenceContextProvider">The persistence context provider.</param>
+    /// <param name="loggerFactory">The logger factory.</param>
     public DataInitialization(IPersistenceContextProvider persistenceContextProvider, ILoggerFactory loggerFactory)
         : base(persistenceContextProvider, loggerFactory)
     {
     }
 
+    /// <summary>
+    /// Gets the identifier, by which the initialization is selected.
+    /// </summary>
     public static string Id => "0.97d";
 
-    public override string Key => Id;
-
+    /// <inheritdoc />
     public override string Caption => "0.97d";
 
+    /// <inheritdoc />
+    public override string Key => Id;
+
+    /// <inheritdoc />
     protected override IInitializer GameConfigurationInitializer => new GameConfigurationInitializer(this.Context, this.GameConfiguration);
 
+    /// <inheritdoc />
     protected override IGameMapsInitializer GameMapsInitializer => new GameMapsInitializer(this.Context, this.GameConfiguration);
 
+    /// <inheritdoc />
     protected override IInitializer? TestAccountsInitializer => new TestAccountsInitialization(this.Context, this.GameConfiguration);
 
+    /// <inheritdoc />
     protected override void CreateGameClientDefinition()
     {
         var version097Definition = this.Context.CreateNew<GameClientDefinition>();

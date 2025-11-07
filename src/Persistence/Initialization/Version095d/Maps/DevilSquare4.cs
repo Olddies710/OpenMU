@@ -2,13 +2,13 @@
 // Licensed under the MIT License. See LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace MUnique.OpenMU.Persistence.Initialization.Version095d.Maps;
+namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Maps;
 
 using MUnique.OpenMU.AttributeSystem;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.GameLogic.Attributes;
 using MUnique.OpenMU.Persistence.Initialization.Skills;
-using MUnique.OpenMU.Persistence.Initialization.Version095d.Events;
+using MUnique.OpenMU.Persistence.Initialization.Version097d.Events;
 
 /// <summary>
 /// Initialization for the devil square map which hosts devil square 1 to 4.

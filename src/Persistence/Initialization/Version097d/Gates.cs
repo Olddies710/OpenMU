@@ -4,7 +4,6 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d;
 
-using System.Linq;
 using MUnique.OpenMU.DataModel.Configuration;
 
 /// <summary>

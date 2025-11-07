@@ -4,13 +4,11 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Events;
 
-using System;
-using System.Linq;
 using MUnique.OpenMU.DataModel.Configuration;
-using MUnique.OpenMU.Persistence.Initialization.VersionSeasonSix.Maps;
+using MUnique.OpenMU.Persistence.Initialization.Version097d.Maps;
 
 /// <summary>
-/// The initializer for the chaos castle event for version 0.97d.
+/// The initializer for the chaos castle event.
 /// </summary>
 internal class ChaosCastleInitializer : InitializerBase
 {
@@ -62,10 +60,17 @@ internal class ChaosCastleInitializer : InitializerBase
         chaosCastle6.MaximumCharacterLevel = 400;
         chaosCastle6.MinimumSpecialCharacterLevel = 280;
         chaosCastle6.MaximumSpecialCharacterLevel = 400;
+
+        var chaosCastle7 = this.CreateChaosCastleDefinition(7, ChaosCastle7.Number, 1000000);
+        chaosCastle7.RequiresMasterClass = true;
+        chaosCastle7.MinimumCharacterLevel = 400;
+        chaosCastle7.MaximumCharacterLevel = 400;
+        chaosCastle7.MinimumSpecialCharacterLevel = 400;
+        chaosCastle7.MaximumSpecialCharacterLevel = 400;
     }
 
     /// <summary>
-    /// Creates a new <see cref="MiniGameDefinition" /> for a chaos castle event.
+    /// Creates a new <see cref="MiniGameDefinition" /> for a blood castle event.
     /// </summary>
     /// <param name="level">The level of the event.</param>
     /// <param name="mapNumber">The map number.</param>

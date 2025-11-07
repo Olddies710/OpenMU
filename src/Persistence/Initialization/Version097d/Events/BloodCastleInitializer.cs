@@ -4,15 +4,12 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Events;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.Pathfinding;
-using MUnique.OpenMU.Persistence.Initialization.VersionSeasonSix.Maps;
+using MUnique.OpenMU.Persistence.Initialization.Version097d.Maps;
 
 /// <summary>
-/// The initializer for the blood castle event for version 0.97d.
+/// The initializer for the blood castle event.
 /// </summary>
 internal class BloodCastleInitializer : InitializerBase
 {
@@ -39,6 +36,8 @@ internal class BloodCastleInitializer : InitializerBase
         (4, (90000, 90000, 20000), 220, (150000, 80000)),
         (5, (100000, 100000, 25000), 240, (200000, 100000)),
         (6, (110000, 110000, 30000), 260, (250000, 120000)),
+        (7, (120000, 120000, 35000), 280, (250000, 120000)),
+        (8, (130000, 130000, 40000), 300, (250000, 120000)),
     };
 
     private static readonly Dictionary<int, List<(MiniGameSuccessFlags Success, int Score)>> ScoreTableWithWinner = new ()
@@ -103,13 +102,33 @@ internal class BloodCastleInitializer : InitializerBase
                 (MiniGameSuccessFlags.WinningParty | MiniGameSuccessFlags.Dead, 100),
             }
         },
+        {
+            7, new ()
+            {
+                (MiniGameSuccessFlags.Alive, 600),
+                (MiniGameSuccessFlags.Dead, 300),
+                (MiniGameSuccessFlags.Winner, 405),
+                (MiniGameSuccessFlags.WinningParty | MiniGameSuccessFlags.Alive, 200),
+                (MiniGameSuccessFlags.WinningParty | MiniGameSuccessFlags.Dead, 100),
+            }
+        },
+        {
+            8, new ()
+            {
+                (MiniGameSuccessFlags.Alive, 600),
+                (MiniGameSuccessFlags.Dead, 300),
+                (MiniGameSuccessFlags.Winner, 405),
+                (MiniGameSuccessFlags.WinningParty | MiniGameSuccessFlags.Alive, 200),
+                (MiniGameSuccessFlags.WinningParty | MiniGameSuccessFlags.Dead, 100),
+            }
+        },
     };
 
     /// <summary>
     /// A set of monster ids which should count as kill after the gate has been destroyed.
     /// These are all for "Spirit Sorcerer" monsters, for the different levels of blood castle.
     /// </summary>
-    private static readonly short[] SpiritSorcererPerCastleLevel = { -1, 89, 95, 112, 118, 124, 130 };
+    private static readonly short[] SpiritSorcererPerCastleLevel = { -1, 89, 95, 112, 118, 124, 130, 143, 433 };
 
     /// <summary>
     /// Initializes a new instance of the <see cref="BloodCastleInitializer" /> class.
@@ -124,41 +143,54 @@ internal class BloodCastleInitializer : InitializerBase
     /// <inheritdoc />
     public override void Initialize()
     {
-        var bloodCastle1 = this.CreateBloodCastleDefinition(1, BloodCastle1.Number);
+        var bloodCastle1 = this.CreateBloodCastleDefinition(1, 11);
         bloodCastle1.MinimumCharacterLevel = 15;
         bloodCastle1.MaximumCharacterLevel = 80;
         bloodCastle1.MinimumSpecialCharacterLevel = 10;
         bloodCastle1.MaximumSpecialCharacterLevel = 60;
 
-        var bloodCastle2 = this.CreateBloodCastleDefinition(2, BloodCastle2.Number);
+        var bloodCastle2 = this.CreateBloodCastleDefinition(2, 12);
         bloodCastle2.MinimumCharacterLevel = 81;
         bloodCastle2.MaximumCharacterLevel = 130;
         bloodCastle2.MinimumSpecialCharacterLevel = 61;
         bloodCastle2.MaximumSpecialCharacterLevel = 110;
 
-        var bloodCastle3 = this.CreateBloodCastleDefinition(3, BloodCastle3.Number);
+        var bloodCastle3 = this.CreateBloodCastleDefinition(3, 13);
         bloodCastle3.MinimumCharacterLevel = 131;
         bloodCastle3.MaximumCharacterLevel = 180;
         bloodCastle3.MinimumSpecialCharacterLevel = 111;
         bloodCastle3.MaximumSpecialCharacterLevel = 160;
 
-        var bloodCastle4 = this.CreateBloodCastleDefinition(4, BloodCastle4.Number);
+        var bloodCastle4 = this.CreateBloodCastleDefinition(4, 14);
         bloodCastle4.MinimumCharacterLevel = 181;
         bloodCastle4.MaximumCharacterLevel = 230;
         bloodCastle4.MinimumSpecialCharacterLevel = 161;
         bloodCastle4.MaximumSpecialCharacterLevel = 210;
 
-        var bloodCastle5 = this.CreateBloodCastleDefinition(5, BloodCastle5.Number);
+        var bloodCastle5 = this.CreateBloodCastleDefinition(5, 15);
         bloodCastle5.MinimumCharacterLevel = 231;
         bloodCastle5.MaximumCharacterLevel = 280;
         bloodCastle5.MinimumSpecialCharacterLevel = 211;
         bloodCastle5.MaximumSpecialCharacterLevel = 260;
 
-        var bloodCastle6 = this.CreateBloodCastleDefinition(6, BloodCastle6.Number);
+        var bloodCastle6 = this.CreateBloodCastleDefinition(6, 16);
         bloodCastle6.MinimumCharacterLevel = 281;
         bloodCastle6.MaximumCharacterLevel = 330;
         bloodCastle6.MinimumSpecialCharacterLevel = 261;
         bloodCastle6.MaximumSpecialCharacterLevel = 310;
+
+        var bloodCastle7 = this.CreateBloodCastleDefinition(7, 17);
+        bloodCastle7.MinimumCharacterLevel = 331;
+        bloodCastle7.MaximumCharacterLevel = 400;
+        bloodCastle7.MinimumSpecialCharacterLevel = 311;
+        bloodCastle7.MaximumSpecialCharacterLevel = 400;
+
+        var bloodCastle8 = this.CreateBloodCastleDefinition(8, 52);
+        bloodCastle8.RequiresMasterClass = true;
+        bloodCastle8.MinimumCharacterLevel = 331;
+        bloodCastle8.MaximumCharacterLevel = 400;
+        bloodCastle8.MinimumSpecialCharacterLevel = 0;
+        bloodCastle8.MaximumSpecialCharacterLevel = 400;
     }
 
     /// <summary>
@@ -300,13 +332,13 @@ internal class BloodCastleInitializer : InitializerBase
         var gateExpReward = this.Context.CreateNew<MiniGameReward>();
         gateExpReward.RewardType = MiniGameRewardType.Experience;
         gateExpReward.RewardAmount = rewardTableEntry.ExperiencePerGoal.Gate;
-        gateExpReward.RequiredKill = this.GameConfiguration.Monsters.First(m => m.Number == CastleGateNumber);
+        gateExpReward.RequiredKill = this.GameConfiguration.Monsters.First(m => m.Number == 131);
         bloodCastle.Rewards.Add(gateExpReward);
 
         var statueExpReward = this.Context.CreateNew<MiniGameReward>();
         statueExpReward.RewardType = MiniGameRewardType.Experience;
         statueExpReward.RewardAmount = rewardTableEntry.ExperiencePerGoal.Statue;
-        statueExpReward.RequiredKill = this.GameConfiguration.Monsters.First(m => m.Number == StatueOfSaintNumber);
+        statueExpReward.RequiredKill = this.GameConfiguration.Monsters.First(m => m.Number == 132);
         bloodCastle.Rewards.Add(statueExpReward);
 
         var successExpReward = this.Context.CreateNew<MiniGameReward>();

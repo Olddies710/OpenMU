@@ -10,7 +10,7 @@ using MUnique.OpenMU.DataModel.Configuration.Items;
 /// <summary>
 /// Jewels for MU Version 0.97d.
 /// </summary>
-public class Jewels : Version095d.Items.Jewels
+public class Jewels : Version075.Items.Jewels
 {
     /// <summary>
     /// Initializes a new instance of the <see cref="Jewels"/> class.

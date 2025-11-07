@@ -6,10 +6,10 @@ using MUnique.OpenMU.AttributeSystem;
 using MUnique.OpenMU.GameLogic.Attributes;
 using MUnique.OpenMU.Persistence.Initialization.Skills;
 
-namespace MUnique.OpenMU.Persistence.Initialization.Version095d.Maps;
+namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Maps;
 
 using MUnique.OpenMU.DataModel.Configuration;
-using MUnique.OpenMU.Persistence.Initialization.Version095d.Events;
+using MUnique.OpenMU.Persistence.Initialization.Version097d.Events;
 
 /// <summary>
 /// Initialization for the devil square map which hosts devil square 3.

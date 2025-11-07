@@ -6,8 +6,6 @@ namespace MUnique.OpenMU.Persistence.Initialization.Version097d.Items;
 
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.DataModel.Configuration.Items;
-using MUnique.OpenMU.Persistence.Initialization;
-using MUnique.OpenMU.Persistence.Initialization.Maps;
 
 /// <summary>
 /// Initializer for event related items.
@@ -27,19 +25,19 @@ internal class EventTicketItems : InitializerBase
     /// <inheritdoc />
     public override void Initialize()
     {
-        // Blood Castle (6 stages in 0.97d)
-        this.CreateEventItem(16, 13, 1, 2, "Scroll of Archangel", false, 6, 2, 32, 45, 57, 68, 76);
-        this.CreateEventItem(17, 13, 1, 2, "Blood Bone", false, 6, 2, 32, 45, 57, 68, 76);
-        this.CreateEventItem(18, 13, 2, 2, "Cloak of Invisibility", false, 0, 8);
-        this.CreateEventItem(19, 13, 1, 2, "Divine Weapon of Archangel", false);
+        // Blood Castle:
+        this.CreateEventItem(16, 13, 1, 2, "Scroll of Archangel", false, 8, 2, 32, 45, 57, 68, 76, 84, 95);
+        this.CreateEventItem(17, 13, 1, 2, "Blood Bone", false, 8, 2, 32, 45, 57, 68, 76, 84, 95);
+        this.CreateEventItem(18, 13, 2, 2, "Invisibility Cloak", false, 8);
+        this.CreateEventItem(19, 13, 1, 2, "Weapon of Archangel", false);
 
-        // Chaos Castle
+        // Chaos Castle:
         this.CreateEventItem(29, 13, 2, 2, "Armor of Guardsman", false);
 
-        // Devil Square (4 invitations as in 0.95d)
-        this.CreateEventItem(17, 14, 1, 1, "Devil's Eye", false, 4, 2, 36, 47, 60);
-        this.CreateEventItem(18, 14, 1, 1, "Devil's Key", false, 4, 2, 36, 47, 60);
-        this.CreateEventItem(19, 14, 1, 1, "Devil's Invitation", false, 4);
+        // Devil Square:
+        this.CreateEventItem(17, 14, 1, 1, "Devil's Eye", false, 7, 2, 36, 47, 60, 70, 80, 90);
+        this.CreateEventItem(18, 14, 1, 1, "Devil's Key", false, 7, 2, 36, 47, 60, 70, 80, 90);
+        this.CreateEventItem(19, 14, 1, 1, "Devil's Invitation", false, 7);
     }
 
     private ItemDefinition CreateEventItem(byte number, byte group, byte width, byte height, string name, bool dropsFromMonsters, byte maxItemLevel = 0, params byte[] dropLevels)
@@ -55,15 +53,9 @@ internal class EventTicketItems : InitializerBase
         item.DropsFromMonsters = dropsFromMonsters;
         item.MaximumItemLevel = maxItemLevel;
         item.SetGuid(item.Group, item.Number);
-
-        if (dropLevels.Length == 0)
-        {
-            return item;
-        }
-
         if (dropLevels.Length == 1)
         {
-            item.DropLevel = dropLevels[0];
+            item.DropLevel = dropLevels.First();
             return item;
         }
 
@@ -79,7 +71,7 @@ internal class EventTicketItems : InitializerBase
             var dropItemGroup = this.Context.CreateNew<DropItemGroup>();
             dropItemGroup.ItemLevel = itemLevel;
             dropItemGroup.Chance = 0.01;
-            dropItemGroup.Description = $"{name}+{itemLevel}";
+            dropItemGroup.Description = name + "+" + itemLevel;
             dropItemGroup.PossibleItems.Add(item);
             dropItemGroup.MinimumMonsterLevel = dropLevel;
             this.GameConfiguration.DropItemGroups.Add(dropItemGroup);

@@ -4,9 +4,6 @@
 
 namespace MUnique.OpenMU.Persistence.Initialization.Version097d;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using MUnique.OpenMU.AttributeSystem;
 using MUnique.OpenMU.DataModel.Configuration;
 using MUnique.OpenMU.GameLogic.Attributes;
